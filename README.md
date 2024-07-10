@@ -1,64 +1,62 @@
-# Stardew Valley Fish Data Visualization App
+# Fish Data Visualization
 
-This Streamlit app visualizes fish prices in Stardew Valley, allowing users to filter and compare various attributes such as price, location, time, season, and weather conditions. The data is sourced from a CSV file containing detailed information about different fish types found on https://stardewvalleywiki.com/Fish.
+## Overview
+
+This application visualizes fish data from the game Stardew Valley. It allows users to filter fish based on various criteria, adjust price modifiers, and view the results in an interactive bar chart.
 
 ## Features
 
-- **Display Raw Data**: View the raw fish data in a tabular format.
-- **Filter by Attributes**: Use dropdown menus to filter fish by name, location, time of day, season, and weather conditions.
-- **Bar Charts**: Visualize average prices and presence in various attributes using bar charts.
-- **Searchable Dropdowns**: Easily search and select options from dropdown menus.
+- **Filtering Options**: Filter fish by name, location, time of day, season, and weather conditions.
+- **Exclusivity Filters**: Option to apply exclusive filters for locations, times of day, seasons, and weather conditions.
+- **Exclude Fish Categories**: Exclude Night Market, Legendary, and Legendary II fish categories with checkboxes checked by default.
+- **Price Modifiers**: Adjust fish prices based on quality and profession modifiers.
+- **Interactive Bar Chart**: View average fish prices in an interactive Plotly bar chart with hover-over tooltips displaying integer prices.
 
 ## Installation
 
 1. Clone the repository:
 
-   ```bash
+   ```sh
    git clone https://github.com/yourusername/fish-data-visualization.git
-   cd fish-data-visualization
+   cd FishData
    ```
 
-2. Create a virtual environment:
+2. Install the required packages:
 
-   ```bash
-   python -m venv venv
-   ```
-
-3. Activate the virtual environment:
-
-   - On Windows:
-     ```bash
-     .\venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-4. Install the required packages:
-   ```bash
+   ```sh
    pip install -r requirements.txt
    ```
 
+3. Ensure your fish data CSV file is in the same directory as the `FishData.py` script and named `fish_data.csv`.
+
 ## Usage
 
-1. Place your `fish_data.csv` file in the project directory.
+1. Run the Streamlit application:
 
-2. Run the Streamlit app:
-
-   ```bash
+   ```sh
    streamlit run FishData.py
    ```
 
-3. Open your web browser and navigate to `http://localhost:8501`.
+2. Open your web browser and go to the URL provided by Streamlit to interact with the application.
 
 ## File Structure
 
-```plaintext
-fish-data-visualization/
-│
-├── fish_data.csv        # CSV file containing fish data
-├── app.py               # Main Streamlit app script
-├── README.md            # This README file
-└── requirements.txt     # List of required packages
-```
+- `FishData.py`: Main script for the Streamlit application.
+- `fish_data.csv`: CSV file containing the fish data.
+- `requirements.txt`: List of required Python packages.
+
+## Data Format
+
+The `fish_data.csv` file should have the following columns:
+
+- `name`: Name of the fish.
+- `price`: Base price of the fish.
+- `type`: Category of the fish (e.g., common, night market, legendary, legendary II).
+- `ocean`, `river`, `pond`, `lake`, `waterfall`, `woods`, `sewer`, `swamp`, `mines`, `desert`, `mutant bug lair`, `cove`, `ginger ocean`, `ginger pond`, `ginger river`, `volcano`, `night market`: Boolean columns indicating where the fish can be found.
+- `morning`, `afternoon`, `evening`, `night`: Boolean columns indicating when the fish can be caught.
+- `spring`, `summer`, `fall`, `winter`: Boolean columns indicating the seasons when the fish can be caught.
+- `sun`, `rain`, `wind`: Boolean columns indicating the weather conditions under which the fish can be caught.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more information.
