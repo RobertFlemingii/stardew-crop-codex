@@ -1,0 +1,26 @@
+product,base_price,profession
+egg,50,Rancher
+large egg,95,Rancher
+brown egg,50,Rancher
+large brown egg,95,Rancher
+mayonnaise,190,Artisan
+void egg,65,Rancher
+void mayonnaise,275,Artisan
+golden egg,500,Rancher
+duck egg,95,Rancher
+duck feather,250,Rancher
+duck mayonnaise,375,Artisan
+wool,340,Rancher
+cloth,470,Artisan
+rabbit's foot,565,Rancher
+dinosaur egg,350,Rancher
+dinosaur mayonnaise,800,Artisan
+milk,125,Rancher
+large milk,190,Rancher
+cheese,230,Artisan
+goat milk,225,Rancher
+large goat milk,345,Rancher
+goat cheese,400,Artisan
+truffle,625,Rancher
+truffle oil,1065,Artisan
+ostrich egg,600,Rancher

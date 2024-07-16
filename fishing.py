@@ -1,7 +1,28 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from utils import load_data, calculate_modified_price
+
+# Function to load data with caching
+@st.cache_data
+def load_data(file_path):
+    df = pd.read_csv(file_path)
+    return df
+
+# Function to calculate modified price based on quality and profession
+def calculate_modified_price(base_price, quality, profession):
+    import math
+    quality_multipliers = {'Default': 1, 'Silver': 1.25, 'Gold': 1.5, 'Iridium': 2}
+    profession_multipliers = {
+        'Default': 1, 'Fisher': 1.25, 'Angler': 1.5, 'Rancher': 1.2, 'Artisan': 1.4, 
+        'Agriculturalist': 1.1, 'Blacksmith': 1.5, 'Gemologist': 1.3, 
+        'Forester': 1.25, 'Tapper': 1.25
+    }
+
+    quality_multiplier = quality_multipliers[quality]
+    profession_multiplier = profession_multipliers.get(profession, 1)
+
+    modified_price = base_price * quality_multiplier * profession_multiplier
+    return math.floor(modified_price)
 
 def fishing_tab():
     st.title("Fishing Data")

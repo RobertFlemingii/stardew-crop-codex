@@ -6,13 +6,9 @@ from metal_bars import metal_bars_tab
 from gems import gems_tab
 from syrups import syrups_tab
 from fishing import fishing_tab
-from utils import load_css
 
 # Set the page layout to wide and set page title
 st.set_page_config(layout="wide", page_title="Stardew Valley Helper")
-
-# Load custom CSS for styling
-load_css('assets/css/custom.css')
 
 # Create sidebar for navigation
 st.sidebar.title("Navigation")
