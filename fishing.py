@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import math
 
 # Function to load data with caching
 @st.cache_data
@@ -8,9 +9,8 @@ def load_data(file_path):
     df = pd.read_csv(file_path)
     return df
 
-# Function to calculate modified price based on quality and profession
-def calculate_modified_price(base_price, quality, profession):
-    import math
+# Function to calculate modified price based on quality, profession, and cooked status
+def calculate_modified_price(base_price, quality, profession, is_cooked):
     quality_multipliers = {'Default': 1, 'Silver': 1.25, 'Gold': 1.5, 'Iridium': 2}
     profession_multipliers = {
         'Default': 1, 'Fisher': 1.25, 'Angler': 1.5, 'Rancher': 1.2, 'Artisan': 1.4, 
@@ -20,8 +20,9 @@ def calculate_modified_price(base_price, quality, profession):
 
     quality_multiplier = quality_multipliers[quality]
     profession_multiplier = profession_multipliers.get(profession, 1)
+    cooked_multiplier = 2 if is_cooked else 1
 
-    modified_price = base_price * quality_multiplier * profession_multiplier
+    modified_price = base_price * quality_multiplier * profession_multiplier * cooked_multiplier
     return math.floor(modified_price)
 
 def fishing_tab():
@@ -68,6 +69,9 @@ def fishing_tab():
         selected_quality = st.selectbox('Select Quality Modifier', ['Default', 'Silver', 'Gold', 'Iridium'])
         selected_profession = st.selectbox('Select Profession Modifier', ['Default', 'Fisher', 'Angler'])
 
+        # Checkbox for whether the fish is cooked
+        is_cooked = st.checkbox('Is Cooked')
+
     # Filter data based on selections
     filtered_df = df.copy()
 
@@ -96,7 +100,7 @@ def fishing_tab():
         filtered_df = filtered_df[filtered_df['type'] != 'legendary II']
 
     # Apply the modifiers to the prices
-    filtered_df['price'] = filtered_df['price'].apply(lambda x: calculate_modified_price(x, selected_quality, selected_profession))
+    filtered_df['price'] = filtered_df['price'].apply(lambda x: calculate_modified_price(x, selected_quality, selected_profession, is_cooked))
 
     # Aggregating data for bar chart
     agg_data = filtered_df.groupby('name').agg({
@@ -148,12 +152,17 @@ def fishing_tab():
                 hovertemplate='<b>%{x}</b><br>Price: %{y:.0f}g<extra></extra>',
             )
 
-            # Rotate x-axis labels
+            # Logarithmic scale for y-axis and rotate x-axis labels
             fig.update_layout(
+                yaxis_type="log",
+                xaxis={'categoryorder': 'total ascending', 'tickangle': -90},
                 xaxis_title='Fish Name',
                 yaxis_title='Price (g)',
-                title='Average Fish Prices',
-                xaxis={'tickangle': -90}
+                title='Average Fish Prices'
             )
 
             st.plotly_chart(fig, use_container_width=True)
+
+# Run the Streamlit app
+if __name__ == '__main__':
+    fishing_tab()

@@ -1,0 +1,63 @@
+name,price,profession,type,1-39,41-79,81-120,Skull Cavern,Quarry,Quarry Mine,Hill-top Farm,Volcano Dungeon,Ginger Island
+Quartz,25,Gemologist,forage minerals,1,1,1,1,0,0,0,0,0
+Earth Crystal,50,Gemologist,forage minerals,1,0,0,0,0,0,0,0,0
+Frozen Tear,75,Gemologist,forage minerals,0,1,0,0,0,0,0,0,0
+Fire Quartz,100,Gemologist,forage minerals,0,0,1,1,0,0,0,0,0
+Emerald,250,Gemologist,gems,0,0,1,1,1,0,0,1,0
+Aquamarine,180,Gemologist,gems,0,1,1,1,1,0,0,1,0
+Ruby,250,Gemologist,gems,0,0,1,1,1,0,0,1,0
+Amethyst,100,Gemologist,gems,1,1,1,1,1,0,0,1,0
+Topaz,80,Gemologist,gems,1,1,1,1,1,0,0,1,0
+Jade,200,Gemologist,gems,0,1,1,1,1,0,0,1,0
+Diamond,750,Gemologist,gems,0,0,1,1,1,0,0,1,0
+Prismatic Shard,2000,Gemologist,gems,0,0,1,1,1,0,0,1,0
+Tigerseye,275,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Opal,150,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Fire Opal,350,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Alamite,150,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Bixite,300,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Baryte,50,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Aerinite,125,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Calcite,75,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Dolomite,300,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Esperite,100,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Fluorapatite,200,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Geminite,150,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Helvite,450,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Jamborite,150,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Jagoite,115,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Kyanite,250,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Lunarite,200,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Malachite,100,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Neptunite,400,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Lemon Stone,200,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Nekoite,80,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Orpiment,80,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Petrified Slime,120,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Thunder Egg,100,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Pyrite,120,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Ocean Stone,220,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Ghost Crystal,200,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Jasper,150,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Celestine,125,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Marble,110,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Sandstone,60,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Granite,75,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Basalt,175,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Limestone,15,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Soapstone,120,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Hematite,150,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Mudstone,25,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Obsidian,200,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Slate,85,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Fairy Stone,250,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Star Shards,500,Gemologist,geode minerals,1,1,1,1,0,0,0,1,1
+Geode,50,Gemologist,geodes,1,0,0,0,0,0,0,0,0
+Frozen Geode,100,Gemologist,geodes,0,1,0,0,0,0,0,0,0
+Magma Geode,150,Gemologist,geodes,0,0,1,1,0,0,0,0,0
+Omni Geode,0,Gemologist,geodes,1,1,1,1,0,0,0,1,1
+Copper Bar,60,Blacksmith,metal bars,1,0,0,1,1,1,1,1,0
+Iron Bar,120,Blacksmith,metal bars,0,1,0,1,1,1,1,1,0
+Gold Bar,250,Blacksmith,metal bars,0,0,1,1,1,0,1,0,0
+Iridium Bar,1000,Blacksmith,metal bars,0,0,1,1,0,0,1,1,0
+Radioactive Bar,3000,Blacksmith,metal bars,1,1,0,1,0,0,0,0,0

@@ -32,10 +32,10 @@ def calculate_modified_price(base_price, quality, selected_profession, professio
 
 
 # Main function for the Streamlit app
-def animal_products_tab():
+def ranching_tab():
 
     # Load the data
-    df = load_data('animal_products_data.csv')
+    df = load_data('ranching_data.csv')
 
     # Ensure 'profession' column exists in the DataFrame
     if 'profession' not in df.columns:
@@ -111,16 +111,17 @@ def animal_products_tab():
                 hovertemplate='<b>%{x}</b><br>Price: %{y:.0f}g<extra></extra>',
             )
 
-            # Rotate x-axis labels
+            # Logarithmic scale for y-axis and rotate x-axis labels
             fig.update_layout(
+                yaxis_type="log",
+                xaxis={'categoryorder': 'total ascending', 'tickangle': -90},
                 xaxis_title='Animal Product',
                 yaxis_title='Price (g)',
-                title='Average Animal Product Prices',
-                xaxis={'tickangle': -90}
+                title='Average Animal Product Prices'
             )
 
             st.plotly_chart(fig, use_container_width=True)
 
 
 if __name__ == "__main__":
-    animal_products_tab()
+    ranching_tab()

@@ -2,11 +2,28 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-def crops_tab():
+# Function to load data with caching
+@st.cache_data
+def load_data(file_path):
+    df = pd.read_csv(file_path)
+    return df
+
+# Function to calculate modified price based on quality and profession
+def calculate_modified_price(price, quality, selected_profession):
+    quality_multipliers = {'Default': 1, 'Silver': 1.25, 'Gold': 1.5, 'Iridium': 2}
+    profession_multipliers = {'Default': 1, 'Fisher': 1.25, 'Angler': 1.5}
+
+    quality_multiplier = quality_multipliers.get(quality, 1)
+    profession_multiplier = profession_multipliers.get(selected_profession, 1)
+
+    modified_price = price * quality_multiplier * profession_multiplier
+    return modified_price
+
+def tilling_tab():
     st.title("Crop Data")
     
     # Load the data
-    df = load_data('crops_data.csv')  # Assuming you have a function to load crop data
+    df = load_data('tilling_data.csv')
     
     # Create columns for the select boxes to make the layout responsive
     col1, col2 = st.columns([1, 3])
@@ -77,6 +94,9 @@ def crops_tab():
     elif agg_data.empty:
         st.write("### No data to display with current filters.")
     else:
+        # Sort data by increasing price
+        agg_data = agg_data.sort_values(by='Sell Price')
+
         # Bar chart for average sell prices using plotly
         with col2:
             st.write("## Bar Chart of Average Sell Prices")
@@ -100,7 +120,11 @@ def crops_tab():
                 xaxis_title='Crop Name',
                 yaxis_title='Sell Price',
                 title='Average Crop Sell Prices',
-                xaxis={'tickangle': -90}
+                xaxis={'tickangle': -90},
+                yaxis_type='log'  # Set y-axis to logarithmic scale
             )
 
             st.plotly_chart(fig, use_container_width=True)
+
+if __name__ == "__main__":
+    tilling_tab()
