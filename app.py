@@ -1,9 +1,23 @@
 import streamlit as st
-from tilling import tilling_tab  # Import your tab functions
+from tilling import tilling_tab  
 from ranching import ranching_tab
 from mining import mining_tab
 from foraging import foraging_tab
 from fishing import fishing_tab
+
+# Set the page configuration
+st.set_page_config(
+    page_title="Stardew Valley Data Visualization",
+    page_icon="🌾",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Function to handle page navigation
+def navigate_to(page):
+    st.session_state.page = page
+    st.session_state.nav_selection = page
+    st.rerun()
 
 # Define the main menu function
 def main_menu():
@@ -11,52 +25,80 @@ def main_menu():
     st.write("## Main Menu")
     st.write("Click on the icons below to navigate to different sections:")
 
-    # Create big icons for each section in the desired order
+    # Load icons 
+    tilling_icon = 'icons/tilling.png'
+    ranching_icon = 'icons/ranching.png'
+    mining_icon = 'icons/mining.png'
+    foraging_icon = 'icons/foraging.png'
+    fishing_icon = 'icons/fishing.png'
+
+    # Create columns for the icons
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
         if st.button("Tilling", key='tilling'):
-            st.session_state.page = 'Tilling'
+            navigate_to('Tilling')
+        st.image(tilling_icon, use_column_width=True)
 
     with col2:
         if st.button("Ranching", key='ranching'):
-            st.session_state.page = 'Ranching'
+            navigate_to('Ranching')
+        st.image(ranching_icon, use_column_width=True)
 
     with col3:
         if st.button("Mining", key='mining'):
-            st.session_state.page = 'Mining'
+            navigate_to('Mining')
+        st.image(mining_icon, use_column_width=True)
 
     with col4:
         if st.button("Foraging", key='foraging'):
-            st.session_state.page = 'Foraging'
+            navigate_to('Foraging')
+        st.image(foraging_icon, use_column_width=True)
 
     with col5:
         if st.button("Fishing", key='fishing'):
-            st.session_state.page = 'Fishing'
+            navigate_to('Fishing')
+        st.image(fishing_icon, use_column_width=True)
 
 # Main function to run the Streamlit app
 def main():
     # Initialize session state to manage page navigation
-    session_state = st.session_state
-    if 'page' not in session_state:
-        session_state.page = 'Main Menu'
+    if 'page' not in st.session_state:
+        st.session_state.page = 'Main Menu'
+    if 'nav_selection' not in st.session_state:
+        st.session_state.nav_selection = 'Main Menu'
 
-    # Display the sidebar navigation and main content
+    # Display the side taskbar
+    st.markdown(
+        """
+        <style>
+        .sidebar .sidebar-content {
+            width: 200px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     st.sidebar.title("Navigation")
-    nav_selection = st.sidebar.radio("Go to", ["Main Menu", "Tilling", "Ranching", "Mining", "Foraging", "Fishing"])
+    nav_selection = st.sidebar.radio("Go to", ["Main Menu", "Tilling", "Ranching", "Mining", "Foraging", "Fishing"], index=["Main Menu", "Tilling", "Ranching", "Mining", "Foraging", "Fishing"].index(st.session_state.nav_selection))
 
-    if nav_selection == "Main Menu":
+    # Update the session state based on sidebar navigation
+    if nav_selection != st.session_state.page:
+        navigate_to(nav_selection)
+
+    # Display the appropriate page based on the session state
+    if st.session_state.page == "Main Menu":
         main_menu()
-    elif nav_selection == "Tilling":
-        tilling_tab()  # Replace with your tilling tab function
-    elif nav_selection == "Ranching":
-        ranching_tab()  # Replace with your ranching tab function
-    elif nav_selection == "Mining":
-        mining_tab()  # Replace with your mining tab function
-    elif nav_selection == "Foraging":
-        foraging_tab()  # Replace with your foraging tab function
-    elif nav_selection == "Fishing":
-        fishing_tab()  # Replace with your fishing tab function
+    elif st.session_state.page == "Tilling":
+        tilling_tab()  
+    elif st.session_state.page == "Ranching":
+        ranching_tab()  
+    elif st.session_state.page == "Mining":
+        mining_tab()  
+    elif st.session_state.page == "Foraging":
+        foraging_tab()  
+    elif st.session_state.page == "Fishing":
+        fishing_tab()  
 
 # Run the Streamlit app
 if __name__ == '__main__':
