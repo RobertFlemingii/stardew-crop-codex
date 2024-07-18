@@ -1,62 +1,60 @@
-# Fish Data Visualization
+Stardew Valley Data Visualization
+Overview
+This application provides interactive data visualization for various aspects of Stardew Valley gameplay. The app features different sections for fishing, foraging, mining, ranching, and tilling, each with its own set of filters and visualizations.
 
-## Overview
+Features
+Fishing: Visualize and filter fish data by name, location, time of day, season, and weather conditions. View average fish prices with interactive charts.
+Foraging: Analyze foraging data with various filters and visualizations.
+Mining: Explore mining data and visualizations.
+Ranching: View and filter ranching data.
+Tilling: Analyze tilling data with interactive visualizations.
+Navigation: Navigate between different sections using a taskbar and a main menu with clickable icons.
+File Structure
+assets/: Folder for asset files (currently not in use)
+fish_sprites/: Folder for fish sprites (currently not in use)
+icons/: Contains icon images for navigation buttons
+app.py: Main script for running the Streamlit application
+artisan_goods.py: Script related to artisan goods data
+fish_data.csv: CSV file containing fish data
+fishing.py: Script for fishing data and visualization
+foraging.py: Script for foraging data and visualization
+foraging_data.csv: CSV file containing foraging data
+mine_data.csv: CSV file containing mining data
+mining.py: Script for mining data and visualization
+ranching.py: Script for ranching data and visualization
+ranching_data.csv: CSV file containing ranching data
+requirements.txt: List of required Python packages
+tilling.py: Script for tilling data and visualization
+tilling_data.csv: CSV file containing tilling data
+Installation
+Clone the Repository
 
-This application visualizes fish data from the game Stardew Valley. It allows users to filter fish based on various criteria, adjust price modifiers, and view the results in an interactive bar chart.
+sh
+Copy code
+git clone https://github.com/yourusername/stardew-valley-data-visualization.git
+cd stardew-valley-data-visualization
+Install Dependencies
 
-## Features
+sh
+Copy code
+pip install -r requirements.txt
+Prepare Data Files
 
-- **Filtering Options**: Filter fish by name, location, time of day, season, and weather conditions.
-- **Exclusivity Filters**: Option to apply exclusive filters for locations, times of day, seasons, and weather conditions.
-- **Exclude Fish Categories**: Exclude Night Market, Legendary, and Legendary II fish categories with checkboxes checked by default.
-- **Price Modifiers**: Adjust fish prices based on quality and profession modifiers.
-- **Interactive Bar Chart**: View average fish prices in an interactive Plotly bar chart with hover-over tooltips displaying integer prices.
+Ensure the required CSV files (fish_data.csv, foraging_data.csv, mine_data.csv, ranching_data.csv, tilling_data.csv) are present in the project directory.
 
-## Installation
+Usage
+Run the Application
 
-1. Clone the repository:
+sh
+Copy code
+streamlit run app.py
+Open the Web Application
 
-   ```sh
-   git clone https://github.com/yourusername/fish-data-visualization.git
-   cd FishData
-   ```
+Open your web browser and go to the URL provided by Streamlit to interact with the application.
 
-2. Install the required packages:
+Development
+To make updates or contribute to the project:
 
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-3. Ensure your fish data CSV file is in the same directory as the `FishData.py` script and named `fish_data.csv`.
-
-## Usage
-
-1. Run the Streamlit application:
-
-   ```sh
-   streamlit run FishData.py
-   ```
-
-2. Open your web browser and go to the URL provided by Streamlit to interact with the application.
-
-## File Structure
-
-- `FishData.py`: Main script for the Streamlit application.
-- `fish_data.csv`: CSV file containing the fish data.
-- `requirements.txt`: List of required Python packages.
-
-## Data Format
-
-The `fish_data.csv` file should have the following columns:
-
-- `name`: Name of the fish.
-- `price`: Base price of the fish.
-- `type`: Category of the fish (e.g., common, night market, legendary, legendary II).
-- `ocean`, `river`, `pond`, `lake`, `waterfall`, `woods`, `sewer`, `swamp`, `mines`, `desert`, `mutant bug lair`, `cove`, `ginger ocean`, `ginger pond`, `ginger river`, `volcano`, `night market`: Boolean columns indicating where the fish can be found.
-- `morning`, `afternoon`, `evening`, `night`: Boolean columns indicating when the fish can be caught.
-- `spring`, `summer`, `fall`, `winter`: Boolean columns indicating the seasons when the fish can be caught.
-- `sun`, `rain`, `wind`: Boolean columns indicating the weather conditions under which the fish can be caught.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+Update Scripts: Modify the scripts for different sections (e.g., fishing.py, foraging.py, etc.) to add or change functionalities.
+Add Data Files: Place new data files in the project directory and ensure they are referenced correctly in the scripts.
+Icons and Assets: Place any new icons or assets in the icons/ and assets/ folders as needed.
