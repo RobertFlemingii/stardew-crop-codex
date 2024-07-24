@@ -1,63 +1,53 @@
-Stardew Valley Data Visualization
-Welcome to the Stardew Valley Data Visualization project! This application provides interactive data visualization tools for various aspects of Stardew Valley gameplay. Explore and analyze data related to fishing, foraging, mining, ranching, and tilling, all from one convenient interface.
+# Stardew Valley Data Visualization App
+## Introduction
+I couldn't find a comprehensive way to see which Stardew Valley items are most profitable in each category without manually searching through the wiki. This app solves that problem by providing a data-driven visualization.
+## Features
+- **Dynamic Data Loading**: Uses pandas to read CSV files, making it easy to update data without hardcoding.
+- **Modifiers**: Applies mathematical multipliers for quality and farmer profession modifiers using helper functions.
+- **Accurate** Calculations: Ensures price calculations round down to the nearest gold (g), matching the game's mechanics.
+- **Multi-topic Coverage**: Includes multiple categories such as fishing, tilling, ranching, mining, and foraging, accessible through a sidebar.
+- **Interactive Data Visualization**: Utilizes Plotly for creating bar charts with hover-over tooltips.
+## Navigation
+To maintain good screen economy and provide easy access to different data categories, a sidebar with navigation buttons was implemented.
+### Sidebar Navigation
+- **Categories**: Main Menu, Tilling, Ranching, Mining, Foraging, Fishing
+- **Navigation Function**: Ensures that both the page and sidebar update correctly when switching tabs.
+## Filtering and Display Options
+- **Filtering Options**: Initially used select boxes, later switched to multi-select options to allow multiple filters.
+- **Exclusive Filters**: Checkbox option to switch between exclusive and non-exclusive filters for conditions like weather.
+- **Wiki-like Display**: Selectbox and table display to present selected items similarly to the wiki.
+## Data Visualization
+- **Plotly Bar Chart**: Organizes data in ascending order with interactive hover-over tooltips displaying additional information.
+## Bugs and Solutions
+During the development, several bugs and challenges were encountered. Here are some notable ones and their resolutions:
+- **Incorrect Profession Modifier in Fish Data**:
+  - **Problem**: Incorrect application of profession modifiers.
+  - **Solution**: Separated quality multipliers from profession modifiers and ensured accurate calculations.
+- **Checkbox States Not Retained**:
+  - **Problem**: Checkboxes did not retain default states.
+  - **Solution**: Initialized checkboxes with default states and handled state changes correctly.
+- **Dropdown Menu Implementation**:
+  - **Problem**: Dropdown menus for quality and profession modifiers were confusing.
+  - **Solution**: Used selectbox for single selections and ensured proper functionality through user feedback and testing.
+- **Plotly Bar Chart Tooltips**:
+  - **Problem**: Tooltips displayed float prices.
+  - **Solution**: Rounded values to integers for clearer visualization.
+- **Gold per Day (GPD) Calculation for Crops**:
+  - **Problem**: Inconsistent GPD calculations in Google Sheets.
+  - **Solution**: Standardized formulas for Seed Price, Sell Price, Yield, Grow Time, and Regrow Time.
+- **CSV Data Integrity**:
+  - **Problem**: Inconsistent data in CSV files.
+  - **Solution**: Implemented data validation checks for integrity before loading.
+- **Data Loading Performance**:
+  - **Problem**: Slow loading of large CSV files.
+  - **Solution**: Optimized loading using pandas and caching mechanisms in Streamlit.
+- **Streamlit Update Compatibility**:
+  - **Problem**: Compatibility issues with Streamlit updates.
+  - **Solution**: Regularly updated codebase and tested for compatibility.
+- **Foraging Data Integration**:
+  - **Problem**: Difficulty in integrating foraging data.
+  - **Solution**: Created a dedicated script and standardized data format for consistent processing and visualization.
+## Conclusion
+This app provides a comprehensive and interactive way to visualize the profitability of Stardew Valley items. It addresses the challenge of manually searching through the wiki and offers a flexible, data-driven solution that can be easily updated.
 
 
-🌟 Features
-Fishing: Visualize and filter fish data by name, location, time of day, season, and weather conditions. View average fish prices with interactive charts.
-Foraging: Analyze foraging data with various filters and visualizations.
-Mining: Explore mining data with interactive visualizations.
-Ranching: View and filter ranching data.
-Tilling: Analyze tilling data with interactive charts.
-Navigation: Seamlessly navigate between sections using a taskbar and a main menu with clickable icons.
-
-
-📁 File Structure
-
-assets/              # Folder for asset files (currently not in use)
-fish_sprites/        # Folder for fish sprites (currently not in use)
-icons/               # Contains icon images for navigation buttons
-app.py               # Main script for running the Streamlit application
-artisan_goods.py     # Script related to artisan goods data
-fish_data.csv        # CSV file containing fish data
-fishing.py           # Script for fishing data and visualization
-foraging.py          # Script for foraging data and visualization
-foraging_data.csv    # CSV file containing foraging data
-mine_data.csv        # CSV file containing mining data
-mining.py            # Script for mining data and visualization
-ranching.py          # Script for ranching data and visualization
-ranching_data.csv    # CSV file containing ranching data
-requirements.txt     # List of required Python packages
-tilling.py           # Script for tilling data and visualization
-tilling_data.csv     # CSV file containing tilling data
-
-
-🚀 Installation
-
-Clone the Repository
-
-git clone https://github.com/yourusername/stardew-valley-data-visualization.git
-cd stardew-valley-data-visualization
-
-Install Dependencies
-
-pip install -r requirements.txt
-Prepare Data Files
-
-Ensure the required CSV files (fish_data.csv, foraging_data.csv, mine_data.csv, ranching_data.csv, tilling_data.csv) are present in the project directory.
-
-
-🛠 Usage
-Run the Application
-
-streamlit run app.py
-Open the Web Application
-
-Open your web browser and go to the URL provided by Streamlit to interact with the application.
-
-
-🧑‍💻 Development
-To contribute or make updates:
-
-Update Scripts: Modify the scripts for different sections (e.g., fishing.py, foraging.py, etc.) to add or change functionalities.
-Add Data Files: Place new data files in the project directory and ensure they are referenced correctly in the scripts.
-Icons and Assets: Add or modify icons and assets in the icons/ and assets/ folders as needed.
