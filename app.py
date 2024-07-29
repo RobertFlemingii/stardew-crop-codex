@@ -26,11 +26,11 @@ def main_menu():
     st.write("Click on the icons below to navigate to different sections:")
 
     # Load icons 
-    tilling_icon = 'icons/tilling.png'
-    ranching_icon = 'icons/ranching.png'
-    mining_icon = 'icons/mining.png'
-    foraging_icon = 'icons/foraging.png'
-    fishing_icon = 'icons/fishing.png'
+    tilling_icon = 'icons/Tilling.png'
+    ranching_icon = 'icons/Ranching.png'
+    mining_icon = 'icons/Mining.png'
+    foraging_icon = 'icons/Foraging.png'
+    fishing_icon = 'icons/Fishing.png'
 
     # Create columns for the icons
     col1, col2, col3, col4, col5 = st.columns(5)
